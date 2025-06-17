@@ -1,0 +1,264 @@
+/* 기본 설정 */
+body {
+    font-family: 'Noto Sans KR', sans-serif; /* 한국어 폰트 권장 (구글 폰트에서 가져올 수 있음) */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+a {
+    text-decoration: none;
+    color: inherit; /* 링크 색상 부모 요소 상속 */
+}
+
+a:hover {
+    opacity: 0.8;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* 이미지 하단 여백 제거 */
+}
+
+.btn {
+    display: inline-block;
+    background-color: #333;
+    color: #fff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: #555;
+    opacity: 1; /* a:hover와 충돌 방지 */
+}
+
+/* --- 헤더 --- */
+header {
+    background-color: #fff;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo a {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px; /* 메뉴 항목 간 간격 */
+}
+
+.nav-links a {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #555;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #000;
+}
+
+.utility-links a {
+    margin-left: 20px;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/* --- 메인 비주얼/히어로 섹션 --- */
+.hero-section {
+    background-image: url('../shopping/resources/메인.jpg');
+    background-size: cover; /* 배경 이미지가 요소 전체를 덮도록 */
+    background-position: bottom; /* 배경 이미지를 가운데로 배치 */
+    min-height: 550px; /* 높이 조절 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    padding: 40px 20px; /* 모바일 대응 */
+}
+
+.hero-section::before { /* 배경 이미지 위에 그림자/오버레이 */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3); /* 살짝 어둡게 */
+    z-index: 1;
+}
+
+.hero-content {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    line-height: 1.2;
+    font-weight: 700;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+/* --- 섹션 공통 스타일 --- */
+section {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 50px;
+    color: #333;
+    position: relative;
+    display: inline-block;
+}
+
+section h2::after { /* 제목 아래 선 */
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: #bbb;
+}
+
+/* --- 카테고리/제품 그리드 --- */
+.category-showcase {
+    background-color: #fff;
+}
+
+.category-grid, .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 반응형 그리드 */
+    gap: 30px;
+    margin-top: 40px;
+    margin-bottom: 50px;
+}
+
+/* --- About 페이지 특정 스타일 --- */
+
+/* 브랜드 소개 및 철학 섹션 */
+.about-content-section {
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center; /* 세로 중앙 정렬 */
+    gap: 60px; /* 텍스트와 이미지 간격 */
+    flex-wrap: wrap; /* 작은 화면에서 줄바꿈 */
+}
+
+.about-text-block {
+    font-size: 30px;
+    line-height: 33px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+}
+
+/* --- 반응형 디자인 추가 --- */
+@media (max-width: 768px) {
+    .about-hero-text h1 {
+        font-size: 2.5rem;
+    }
+    .about-hero-text p {
+        font-size: 1.1rem;
+    }
+    .about-content-section {
+        flex-direction: column;
+        gap: 40px;
+    }
+    .about-text-block,
+    .about-image-block {
+        min-width: unset; /* 모바일에서 최소 너비 제한 해제 */
+    }
+    .about-image-block img {
+        width: 90%; /* 이미지 크기 조정 */
+        margin: 0 auto;
+    }
+    .about-values-section {
+        flex-direction: column;
+    }
+    .value-item {
+        flex-basis: 100%;
+    }
+    .about-team-history-section h2 {
+        font-size: 2.2rem;
+    }
+    .timeline {
+        padding-left: 0;
+    }
+    .timeline::before {
+        left: 50%;
+        transform: translateX(-50%); /* 가운데 정렬 */
+    }
+    .timeline-item {
+        text-align: center;
+        padding-left: 0;
+        margin-left: 0;
+    }
+    .timeline-item::before {
+        left: 50%;
+        transform: translateX(-50%); /* 가운데 정렬 */
+        top: -10px; /* 라인 위로 이동 */
+        border-color: #f9f9f9; /* 배경색과 맞춤 */
+    }
+}
+
+/* --- 현재 페이지 링크 강조 스타일 --- */
+.nav-links li a.active {
+    font-weight: bold;
+    color: #007bff; /* 활성화된 링크 색상 */
+}
+
+/* 호버 밑줄도 활성화 시에는 고정 */
+.main-links li a.active::after {
+    width: 100%;
+    background-color: #007bff;
+}
