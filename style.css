@@ -1,11 +1,17 @@
 /* 기본 설정 */
 body {
-    font-family: 'Noto Sans KR', sans-serif; /* 한국어 폰트 권장 (구글 폰트에서 가져올 수 있음) */
+    font-family: 'Noto Sans KR', sans-serif;
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    color: #333;
-    background-color: #f9f9f9;
+    color: #ffffff; /* 기본 글자색 (배경 이미지 위에 잘 보이도록 흰색 유지) */
+    background-color: #f9f9f9; /* 이미지가 로드되지 않을 때의 폴백 배경색 */
+
+    /* 메인 화면 전체 배경 이미지 설정 */
+    background-image: url('resources/메인.jpg'); /* 이미지 경로 확인 필수! */
+    background-size: cover; /* **이 부분을 cover로 변경했습니다.** 이미지가 body 전체를 덮도록 합니다. */
+    background-position: center center; /* **이 부분을 center center로 변경했습니다.** 이미지를 중앙에 배치하여 주요 부분이 잘릴 가능성을 줄입니다. */
+    background-attachment: fixed; /* (선택 사항) 스크롤 시 배경 이미지를 고정합니다. */
 }
 
 a {
@@ -50,7 +56,6 @@ img {
 
 /* --- 헤더 --- */
 header {
-    background-color: #fff;
     padding: 15px 0;
     border-bottom: 1px solid #eee;
     box-shadow: 0 1px 5px rgba(0,0,0,0.05);
@@ -68,7 +73,7 @@ header {
 .logo a {
     font-size: 1.8rem;
     font-weight: bold;
-    color: #333;
+    color: #000000;
 }
 
 .nav-links {
@@ -79,25 +84,22 @@ header {
 .nav-links a {
     font-size: 1rem;
     font-weight: 500;
-    color: #555;
+    color: #ffffff;
     transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: #000;
+    color: #ffe3e3;
 }
 
 .utility-links a {
     margin-left: 20px;
     font-size: 0.9rem;
-    color: #777;
+    color: #ffffff;
 }
 
 /* --- 메인 비주얼/히어로 섹션 --- */
 .hero-section {
-    background-image: url('../shopping/resources/메인.jpg');
-    background-size: cover; /* 배경 이미지가 요소 전체를 덮도록 */
-    background-position: bottom; /* 배경 이미지를 가운데로 배치 */
     min-height: 550px; /* 높이 조절 */
     display: flex;
     align-items: center;
@@ -254,11 +256,11 @@ section h2::after { /* 제목 아래 선 */
 /* --- 현재 페이지 링크 강조 스타일 --- */
 .nav-links li a.active {
     font-weight: bold;
-    color: #007bff; /* 활성화된 링크 색상 */
+    color: #ffe3e3; /* 활성화된 링크 색상 */
 }
 
 /* 호버 밑줄도 활성화 시에는 고정 */
 .main-links li a.active::after {
     width: 100%;
-    background-color: #007bff;
+    background-color: #ffe3e3;
 }
